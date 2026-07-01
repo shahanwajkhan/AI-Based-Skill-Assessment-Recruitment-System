@@ -549,7 +549,7 @@ const LandingPage = () => {
             >
               <div className="visual-glow-halo" />
               <div className="parallax-mockup-wrapper">
-                <img src="/hero-brain.png" alt="SkillGuard AI Cinematic" className="hero-img-cinematic mockup-layered" />
+                <img src="/skillguard_hero_dashboard.png" alt="SkillGuard AI Dashboard" className="hero-img-cinematic mockup-layered" />
               </div>
               
               {/* Floating Layered UI Elements (Mockup style) */}
