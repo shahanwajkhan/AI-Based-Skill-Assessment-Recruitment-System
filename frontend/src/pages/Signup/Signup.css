@@ -1,0 +1,144 @@
+.signup-container {
+  width: 100%;
+}
+
+.signup-progress-wrap {
+  margin-bottom: 2rem;
+}
+
+.signup-step-wrapper {
+  width: 100%;
+}
+
+.step-content {
+  margin-bottom: 1.5rem;
+}
+
+.form-step h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #1e293b;
+}
+
+.step-description {
+  color: #64748b;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+/* Role Selection Refinement */
+.role-selection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.role-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  text-align: left;
+}
+
+.role-btn:hover {
+  border-color: #10b981;
+  background: #f0fdf4;
+}
+
+.role-btn.active {
+  border-color: #10b981;
+  background: #f0fdf4;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.05);
+}
+
+.role-icon {
+  width: 40px;
+  height: 40px;
+  background: #f8fafc;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+
+.role-btn.active .role-icon {
+  background: #10b981;
+  color: white;
+}
+
+.role-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.role-text strong {
+  font-size: 1rem;
+  color: #1e293b;
+}
+
+.role-text span {
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+/* Action Bar */
+.signup-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.signup-actions .btn { flex: 1; }
+
+/* File & Bio Specifics */
+.avatar-upload-section {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1rem;
+  background: #f8fafc;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+}
+
+.textarea-field {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  background: #f8fafc;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 12px;
+  min-height: 100px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+}
+
+.textarea-field:focus {
+  outline: none;
+  border-color: #22c55e;
+  background: white;
+  box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.1);
+}
+
+/* Fade in for steps */
+.slide-in {
+  animation: authFadeIn 0.4s ease-out forwards;
+}
+
+@keyframes authFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

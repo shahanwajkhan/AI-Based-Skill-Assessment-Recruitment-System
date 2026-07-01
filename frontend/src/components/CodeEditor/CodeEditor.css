@@ -1,0 +1,291 @@
+.code-editor-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #1e1e1e;
+  border: 1px solid #3e3e42;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.editor-top-bar {
+  display: flex;
+  background-color: #262626;
+  border-bottom: 1px solid #3e3e42;
+}
+
+.editor-tab {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #8c8c8c;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.editor-tab.active {
+  color: #d4d4d4;
+  background-color: #1e1e1e;
+  border-bottom: 2px solid transparent; /* Could be #007acc if we want vs code */
+}
+
+.editor-toolbar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0.4rem 1rem;
+  background-color: #1e1e1e;
+}
+
+.lang-select {
+  padding: 0.5rem 0.75rem;
+  background-color: #313244;
+  color: #cdd6f4;
+  border: 1px solid #45475a;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.lang-select:hover {
+  background-color: #45475a;
+  border-color: #6366f1;
+}
+
+.toolbar-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.run-btn {
+  background-color: #313244 !important;
+  color: #cdd6f4 !important;
+  border: 1px solid #45475a !important;
+  font-size: 0.85rem !important;
+  padding: 0.5rem 1rem !important;
+}
+
+.run-btn:hover {
+  background-color: #45475a !important;
+  border-color: #6366f1 !important;
+}
+
+.submit-btn {
+  background: linear-gradient(135deg, #6366f1, #4f46e5) !important;
+  color: white !important;
+  border: none !important;
+  font-size: 0.85rem !important;
+  padding: 0.5rem 1rem !important;
+  font-weight: 600 !important;
+  box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.2);
+}
+
+.submit-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.3);
+}
+
+.editor-main-area {
+  flex-grow: 1;
+  min-height: 400px;
+  background-color: #1e1e1e;
+}
+
+.editor-console-area {
+  height: 240px;
+  background-color: #1e1e1e;
+  display: flex;
+  flex-direction: column;
+}
+
+.console-header-tabs {
+  display: flex;
+  background-color: #262626;
+  border-bottom: 1px solid #3e3e42;
+  border-top: 1px solid #3e3e42;
+}
+
+.console-tab {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #8c8c8c;
+}
+
+.console-tab.active {
+  color: #d4d4d4;
+  background-color: #1e1e1e;
+  border-bottom: 2px solid transparent;
+}
+
+.console-output {
+  flex-grow: 1;
+  padding: 1rem;
+  margin: 0;
+  color: #a6e3a1; 
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  background-color: #1e1e1e;
+}
+
+.console-output {
+  flex-grow: 1;
+  padding: 1.25rem;
+  margin: 0;
+  color: #a6e3a1; /* Catppuccin Green */
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  background-color: #11111b;
+}
+
+/* Pseudo prompt for terminal */
+.console-output::before {
+  content: "$ ";
+  color: #89b4fa;
+  font-weight: bold;
+}
+
+.test-results {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  background-color: #1e1e1e;
+}
+
+.test-case-card {
+  padding: 0.8rem 1rem;
+  border-radius: 6px;
+  background-color: #252526;
+  border: 1px solid #3e3e42;
+  transition: all 0.2s ease;
+}
+
+.test-case-card:hover {
+  border-color: #45475a;
+  background-color: #1e1e2e;
+}
+
+.test-case-card.passed {
+  border-left: 4px solid #a6e3a1;
+}
+
+.test-case-card.failed {
+  border-left: 4px solid #f38ba8;
+}
+
+.test-case-card h4 {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #cdd6f4;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.test-details {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  color: #bac2de;
+  background: #11111b;
+  padding: 0.75rem;
+  border-radius: 6px;
+  border: 1px solid #313244;
+}
+
+.test-details p {
+  margin: 0.35rem 0;
+}
+
+.test-io code {
+  font-family: 'JetBrains Mono', monospace;
+  background-color: #313244;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  color: #fab387;
+  font-size: 0.85rem;
+}
+
+.test-metrics {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #313244;
+  display: flex;
+  gap: 1.25rem;
+  font-size: 0.75rem;
+  color: #6366f1;
+  font-weight: 600;
+}
+
+.status-badge {
+  font-size: 0.7rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  background-color: #313244;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+/* Footer Actions */
+.editor-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: #262626;
+  border-top: 1px solid #3e3e42;
+}
+
+.console-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #d4d4d4;
+  cursor: pointer;
+}
+
+.console-toggle-btn:hover {
+  color: #ffffff;
+}
+
+.run-btn-leetcode {
+  background-color: #f2f3f4 !important;
+  color: #262626 !important;
+  border: none !important;
+  font-size: 0.8rem !important;
+  padding: 0.4rem 1.2rem !important;
+  font-weight: 700 !important;
+  border-radius: 4px !important;
+  box-shadow: none !important;
+  transition: background-color 0.2s;
+}
+
+.run-btn-leetcode:hover {
+  background-color: #e5e5e5 !important;
+}
+
+.run-btn-leetcode:disabled {
+  opacity: 0.7 !important;
+  cursor: not-allowed !important;
+}

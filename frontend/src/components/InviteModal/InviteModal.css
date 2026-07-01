@@ -1,0 +1,205 @@
+.cam-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  overflow-y: auto;
+}
+
+.cam-modal {
+  background: white;
+  border-radius: 28px;
+  width: 100%;
+  max-width: 640px;
+  max-height: calc(100vh - 3rem);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+}
+
+@keyframes modalPop {
+  from { opacity: 0; transform: scale(0.95) translateY(20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.cam-header {
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.cam-header-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cam-row {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.cam-row:last-child {
+  margin-bottom: 0;
+}
+
+.cam-field {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.cam-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.cam-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: #334155;
+  transition: all 0.2s;
+  background: #f8fafc;
+}
+
+.cam-input:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+  background: white;
+}
+
+.cam-category-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 0.75rem;
+}
+
+.cam-category-tag {
+  background: #ffffff;
+  color: #475569;
+  border: 2px solid #f1f5f9;
+  border-radius: 16px;
+  padding: 1rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+}
+
+.cam-category-tag:hover {
+  border-color: #e2e8f0;
+  background: #f8fafc;
+  transform: translateY(-2px);
+}
+
+.cam-category-tag.active {
+  background: #eff6ff;
+  color: #2563eb;
+  border-color: #2563eb;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+}
+
+.cam-btn-cancel {
+  padding: 0.75rem 1.5rem;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  color: #64748b;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cam-btn-cancel:hover {
+  background: #f8fafc;
+  color: #334155;
+}
+
+.cam-btn-create {
+  padding: 0.75rem 1.5rem;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cam-btn-create:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.cam-btn-create:disabled {
+  cursor: not-allowed;
+}
+
+/* Custom Scrollbar for Modal Body */
+.cam-body::-webkit-scrollbar {
+  width: 6px;
+}
+.cam-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+.cam-body::-webkit-scrollbar-thumb {
+  background-color: #e2e8f0;
+  border-radius: 20px;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.category-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: #f8fafc;
+  border-radius: 12px;
+  color: #64748b;
+  transition: all 0.2s ease;
+}
+
+.cam-category-tag.active .category-icon {
+  background: #2563eb;
+  color: white;
+}
+
+.cam-switch input:checked + .cam-slider {
+  background-color: #2563eb;
+}
+
+.cam-switch input:focus + .cam-slider {
+  box-shadow: 0 0 1px #2563eb;
+}

@@ -1,0 +1,26 @@
+/* Login page — all core auth styles are in AuthLayout.css */
+.auth-form-body {
+    width: 100%;
+    animation: authFadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+/* ─── Turnstile Widget ─── */
+.turnstile-wrapper {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.turnstile-wrapper iframe {
+    border-radius: 6px !important;
+}
+
+.turnstile-error {
+    color: #ef4444;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-top: 0.25rem;
+    padding-left: 2px;
+}

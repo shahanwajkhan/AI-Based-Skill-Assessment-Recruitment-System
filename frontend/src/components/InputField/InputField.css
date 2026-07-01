@@ -1,0 +1,71 @@
+.input-wrapper {
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+
+.input-label {
+  position: absolute;
+  top: 0.6rem;
+  left: 1rem;
+  font-size: 0.725rem;
+  font-weight: 700;
+  color: #10b981;
+  pointer-events: none;
+  transition: all 0.2s ease;
+  z-index: 10;
+  text-transform: capitalize;
+}
+
+.input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-field {
+  width: 100%;
+  padding: 1.6rem 1rem 0.6rem;
+  font-size: 1.05rem;
+  background: rgba(34, 197, 94, 0.08);
+  border: 1.5px solid rgba(34, 197, 94, 0.2);
+  border-radius: 12px;
+  color: #1e293b;
+  font-weight: 500;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.input-field::placeholder { color: transparent; }
+
+.input-field:focus {
+  outline: none;
+  border-color: #22c55e;
+  background: rgba(34, 197, 94, 0.12);
+  box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.2), 0 0 20px rgba(34, 197, 94, 0.1);
+}
+
+/* Floating Label Logic */
+/* Fixed Label (Accelerec Style) */
+.input-field:focus ~ .input-label,
+.input-field:not(:placeholder-shown) ~ .input-label {
+  color: #10b981;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  color: #64748b;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+
+.password-toggle:hover { color: #22c55e; }
+
+.input-wrapper.has-error .input-field { border-color: #ef4444; }
+.input-error-msg { font-size: 0.75rem; color: #ef4444; margin-top: 0.35rem; font-weight: 500; display: block; }

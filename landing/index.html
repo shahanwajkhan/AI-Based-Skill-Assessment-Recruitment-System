@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillGuard AI - AI Powered Skill Assessment & Proctoring</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- ⚡ SPLASH / WELCOME SCREEN ⚡ -->
+    <div id="splash-screen" class="splash-screen">
+        <div class="splash-content">
+            <div class="splash-logo">⚡</div>
+            <div class="splash-text">
+                <span class="word">The</span> 
+                <span class="word">Next-Gen</span> 
+                <span class="word">Assessment</span> 
+                <span class="word">Platform.</span>
+            </div>
+            <div class="splash-loader"></div>
+        </div>
+    </div>
+
+    <!-- NavigationBar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-icon">🛡️</span>
+                SkillGuard <span class="accent">AI</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#categories">Skill Categories</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="/login" class="btn btn-text">Login</a>
+                <a href="#contact" class="btn btn-primary">Get Started</a>
+            </div>
+            <button class="mobile-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Home / Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="hero-particles" id="particles"></div>
+            <div class="hero-bg-accent"></div>
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <div class="badge fade-in">AI-Powered Verification</div>
+                    <h1 class="fade-in-up">AI Powered Skill Assessment & <span class="gradient-text">Proctoring Platform</span></h1>
+                    <p class="fade-in-up delay-1">Evaluate technical and professional skills through intelligent exams, coding challenges, and secure proctoring technology. Get personalized career predictions based on your performance.</p>
+                    <div class="hero-btns fade-in-up delay-2">
+                        <a href="#contact" class="btn btn-lg btn-primary">Get Started Now</a>
+                        <a href="#how-it-works" class="btn btn-lg btn-outline">Learn More</a>
+                    </div>
+                </div>
+                <div class="hero-visual fade-in-right">
+                    <div class="dashboard-mockup">
+                        <img src="skillguard_hero_dashboard.png" alt="SkillGuard AI Dashboard">
+                        <div class="mockup-overlay">
+                            <div class="proctoring-indicator">
+                                <span class="dot"></span> AI Proctoring Active
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section section-padding">
+            <div class="container grid-2">
+                <div class="about-visual">
+                    <div class="feature-grid">
+                        <div class="feat-box"><span class="icon">📷</span> Camera Monitoring</div>
+                        <div class="feat-box"><span class="icon">🎙️</span> Audio Tracking</div>
+                        <div class="feat-box"><span class="icon">💻</span> Screen Activity</div>
+                        <div class="feat-box"><span class="icon">👁️</span> Gaze Detection</div>
+                    </div>
+                </div>
+                <div class="about-content">
+                    <h2 class="section-title">The Future of <span class="accent">Secure Testing</span></h2>
+                    <p>SkillGuard AI is designed to bridge the gap between skill assessment and integrity. Our platform allows users to verify their technical expertise through intelligent exams monitored by state-of-the-art AI proctoring systems.</p>
+                    <p>By detecting suspicious behavior in real-time—including unauthorized aids, multiple faces, or background noise—we ensure that every certification is earned with 100% integrity.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features-section section-padding bg-light">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title">Powerful <span class="accent">Features</span></h2>
+                    <p>Advanced tools designed for serious skill evaluation</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="f-icon">🛡️</div>
+                        <h3>AI Proctored Exams</h3>
+                        <p>Real-time monitoring using advanced computer vision to detect violations.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="f-icon">💻</div>
+                        <h3>Coding Skill Evaluation</h3>
+                        <p>Integrated IDE for solving real-world programming challenges on-the-fly.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="f-icon">🎙️</div>
+                        <h3>Voice Based Questions</h3>
+                        <p>Evaluate communication and logical thinking through voice-response questions.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="f-icon">🧠</div>
+                        <h3>Recommendation Engine</h3>
+                        <p>Personalized learning paths based on your specific strengths and weaknesses.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="f-icon">🚀</div>
+                        <h3>Career Prediction</h3>
+                        <p>Predict your future career trajectory using AI-driven performance trends.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="f-icon">📊</div>
+                        <h3>Analytics Dashboard</h3>
+                        <p>Detailed performance analytics and skill heatmaps for deep insights.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section id="how-it-works" class="how-section section-padding">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title">How It <span class="accent">Works</span></h2>
+                    <p>Simple 4-step process to verify your expertise</p>
+                </div>
+                <div class="steps-container">
+                    <div class="step-item">
+                        <div class="step-num">01</div>
+                        <h3>Create Account</h3>
+                        <p>Sign up and complete your professional profile with your current skills.</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-num">02</div>
+                        <h3>Take Skill Test</h3>
+                        <p>Browse categories and select a test that matches your career goals.</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-num">03</div>
+                        <h3>AI Monitors Exam</h3>
+                        <p>Our AI system monitors your session to ensure a fair testing environment.</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-num">04</div>
+                        <h3>Receive Analysis</h3>
+                        <p>Get a detailed skill breakdown and AI-powered career suggestions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skill Categories Section -->
+        <section id="categories" class="categories-section section-padding bg-dark">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title text-white">Skill <span class="accent">Categories</span></h2>
+                    <p class="text-slate">Choose your domain and start your assessment journey</p>
+                </div>
+                <div class="categories-grid">
+                    <div class="category-card">
+                        <div class="c-icon">⚛️</div>
+                        <h3>Programming</h3>
+                        <p>Test your logic in JavaScript, Python, Java, C++, and more.</p>
+                        <button class="btn btn-sm btn-primary">Start Assessment</button>
+                    </div>
+                    <div class="category-card">
+                        <div class="c-icon">🌳</div>
+                        <h3>Data Structures</h3>
+                        <p>Master algorithms, trees, graphs, and complex data handling.</p>
+                        <button class="btn btn-sm btn-primary">Start Assessment</button>
+                    </div>
+                    <div class="category-card">
+                        <div class="c-icon">🤖</div>
+                        <h3>Artificial Intelligence</h3>
+                        <p>Evaluate your knowledge in ML, Deep Learning, and Neural Networks.</p>
+                        <button class="btn btn-sm btn-primary">Start Assessment</button>
+                    </div>
+                    <div class="category-card">
+                        <div class="c-icon">🌐</div>
+                        <h3>Web Development</h3>
+                        <p>Front-end architecture, back-end systems, and full-stack dev.</p>
+                        <button class="btn btn-sm btn-primary">Start Assessment</button>
+                    </div>
+                    <div class="category-card">
+                        <div class="c-icon">🔒</div>
+                        <h3>Cybersecurity</h3>
+                        <p>Network security, ethical hacking, and threat mitigation.</p>
+                        <button class="btn btn-sm btn-primary">Start Assessment</button>
+                    </div>
+                    <div class="category-card">
+                        <div class="c-icon">🧩</div>
+                        <h3>Aptitude Tests</h3>
+                        <p>Logical reasoning, quantitative ability, and verbal skills.</p>
+                        <button class="btn btn-sm btn-primary">Start Assessment</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section section-padding">
+            <div class="container">
+                <div class="grid-2">
+                    <div class="contact-info">
+                        <h2 class="section-title">Get in <span class="accent">Touch</span></h2>
+                        <p>Have questions about our proctoring system or skill assessments? Our team is here to help you scale your platform or advance your career.</p>
+                        <div class="contact-list">
+                            <div class="contact-item">📧 contact@skillguard.ai</div>
+                            <div class="contact-item">📍 AI Innovation Hub, Silicon Valley</div>
+                        </div>
+                    </div>
+                    <div class="contact-form-container">
+                        <form id="contactForm" class="contact-form">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" required placeholder="Your Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" required placeholder="your@email.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" rows="4" required placeholder="How can we help?"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">SkillGuard <span class="accent">AI</span></a>
+                    <p>Securing the future of technical hiring and skill verification.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#categories">Categories</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h4>Social</h4>
+                    <div class="social-icons">
+                        <a href="#">LinkedIn</a>
+                        <a href="#">Twitter</a>
+                        <a href="#">GitHub</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SkillGuard AI Platform. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+.progress-container {
+  width: 100%;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.progress-bar-bg {
+  position: absolute;
+  top: 14px; /* Center with the circles (28px height) */
+  /* Left and width injected precisely via React inline styles */
+  height: 4px;
+  background-color: var(--border-color);
+  z-index: 0;
+  border-radius: var(--radius-full);
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: var(--primary);
+  border-radius: var(--radius-full);
+  transition: width var(--transition-normal);
+}
+
+.progress-steps {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1;
+}
+
+.progress-step {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+}
+
+.step-circle {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: var(--surface);
+  border: 4px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  transition: all var(--transition-normal);
+}
+
+.step-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: color var(--transition-normal);
+}
+
+/* Active State */
+.progress-step.active .step-circle {
+  border-color: var(--primary);
+  color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+.progress-step.active .step-label {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* Completed State */
+.progress-step.completed .step-circle {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  color: white;
+}
+
+.progress-step.completed .step-label {
+  color: var(--text-main);
+}

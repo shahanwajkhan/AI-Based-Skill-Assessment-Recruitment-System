@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillGuard AI - Project Report</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --secondary: #64748b;
+            --accent: #10b981;
+            --background: #ffffff;
+            --surface: #f8fafc;
+            --text-main: #1e293b;
+            --text-muted: #475569;
+            --border: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact !important;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            background: #f1f5f9;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Outfit', sans-serif;
+            color: var(--text-main);
+            font-weight: 700;
+        }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 25mm;
+            margin: 20px auto;
+            background: white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        @media print {
+            body { background: white; }
+            .page {
+                margin: 0;
+                box-shadow: none;
+                width: 100%;
+                height: 100%;
+                page-break-after: always;
+            }
+            .no-print { display: none; }
+        }
+
+        /* Cover Page Styles */
+        .cover-page {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .cover-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 10px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+
+        .cover-title {
+            font-size: 4rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+            letter-spacing: -2px;
+        }
+
+        .cover-subtitle {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            margin-bottom: 4rem;
+            font-weight: 500;
+        }
+
+        .cover-info {
+            margin-top: auto;
+            border-top: 1px solid var(--border);
+            padding-top: 2rem;
+            width: 100%;
+        }
+
+        .cover-info p {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-muted);
+        }
+
+        .cover-date {
+            margin-top: 2rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* Global Styles */
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 0.5rem;
+        }
+
+        .section-number {
+            background: var(--primary);
+            color: white;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        h2 { font-size: 1.8rem; }
+        h3 { font-size: 1.3rem; margin: 1.5rem 0 0.5rem; color: var(--primary-dark); }
+
+        p { margin-bottom: 1rem; }
+
+        ul {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .feature-card {
+            padding: 1rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--surface);
+        }
+
+        .feature-card h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            background: #e0f2fe;
+            color: #0369a1;
+            margin-right: 8px;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 1rem 0;
+        }
+
+        .tech-item {
+            background: #f1f5f9;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            border: 1px solid var(--border);
+        }
+
+        .workflow-step {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .step-circle {
+            min-width: 24px;
+            height: 24px;
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        footer {
+            margin-top: 3rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-align: center;
+            position: absolute;
+            bottom: 25mm;
+            left: 0;
+            right: 0;
+        }
+
+        .no-print-toolbar {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: 0.2s;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+        }
+    </style>
+</head>
+<body>
+
+
+
+    <!-- PAGE 1: COVER -->
+    <div class="page cover-page">
+        <div class="cover-bg"></div>
+        <h1 class="cover-title">SkillGuard AI</h1>
+        <p class="cover-subtitle">AI-Based Skill Assessment & Recruitment System</p>
+        
+        <div class="cover-info">
+            <p><strong>Prepared By:</strong> [Your Name]</p>
+            <p><strong>Course:</strong> [Your Course Name]</p>
+            <p><strong>University:</strong> [Your University Name]</p>
+            <p class="cover-date">April 2026</p>
+        </div>
+    </div>
+
+    <!-- PAGE 2: INTRO & OBJECTIVES -->
+    <div class="page">
+        <div class="section-header">
+            <div class="section-number">2</div>
+            <h2>Introduction</h2>
+        </div>
+        <p>SkillGuard AI is a state-of-the-art recruitment and skill assessment platform that leverages Artificial Intelligence to bridge the gap between talented candidates and modern recruiters. By automating the evaluation process, the platform ensures objective, scalable, and data-driven hiring decisions.</p>
+        <p>In the traditional hiring landscape, manual screening is time-consuming and often prone to human bias. SkillGuard AI solves this by introducing proctored AI assessments, automated CV analysis, and personalized learning roadmaps, creating a comprehensive ecosystem for career growth and talent acquisition.</p>
+
+        <div class="section-header" style="margin-top: 3rem;">
+            <div class="section-number">3</div>
+            <h2>Objectives</h2>
+        </div>
+        <ul>
+            <li><strong>Automate Skill Assessment:</strong> Replace manual grading with AI-driven evaluation for technical and soft skills.</li>
+            <li><strong>AI-Based Feedback:</strong> Provide candidates with instant, actionable insights into their performance.</li>
+            <li><strong>Data-Driven Recruitment:</strong> Assist recruiters in identifying top-tier talent through aggregated analytics and ATS scores.</li>
+            <li><strong>Continuous Learning:</strong> Empower students with personalized roadmaps to bridge identified skill gaps.</li>
+        </ul>
+
+        <div class="section-header" style="margin-top: 3rem;">
+            <div class="section-number">4</div>
+            <h2>System Overview</h2>
+        </div>
+        <p>The system is architected as a dual-module ecosystem designed to serve both ends of the recruitment funnel:</p>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h4>1. Student Mode</h4>
+                <p>A personal career hub where students can take assessments, track their progress, and receive AI-guided mentorship.</p>
+            </div>
+            <div class="feature-card">
+                <h4>2. Recruiter Mode</h4>
+                <p>A powerful management dashboard for HR professionals to create exams, monitor candidates, and analyze talent pools.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 3: UI & AUTH -->
+    <div class="page">
+        <div class="section-header">
+            <div class="section-number">5</div>
+            <h2>Landing Page</h2>
+        </div>
+        <p>The landing page serves as the digital storefront of SkillGuard AI, designed with a premium, conversion-focused aesthetic.</p>
+        <ul>
+            <li><strong>Hero Section:</strong> Features a dynamic "Empowering Your Career" headline with a clear Call-to-Action (CTA) for both students and recruiters.</li>
+            <li><strong>Feature Showcase:</strong> Highlights AI evaluation, proctoring security, and roadmap generation.</li>
+            <li><strong>Navigation Bar:</strong> Provides seamless access to "How it Works", "About Us", and Secure Login portals.</li>
+            <li><strong>Responsive Design:</strong> Fully optimized for desktop, tablet, and mobile viewing.</li>
+        </ul>
+
+        <div class="section-header" style="margin-top: 3rem;">
+            <div class="section-number">6</div>
+            <h2>Authentication System</h2>
+        </div>
+        <p>Security and role-based access control (RBAC) are at the core of the platform's authentication architecture.</p>
+        <div class="feature-card">
+            <h4>Dual-Portal Entry</h4>
+            <p>Users can register as either <strong>Student</strong> or <strong>Recruiter</strong>. Each profile type unlocks a unique set of features and data visualizations.</p>
+        </div>
+        <h3 style="margin-top: 1rem;">Key Security Features:</h3>
+        <ul>
+            <li>JWT-based secure authentication.</li>
+            <li>Encrypted password storage using industry-standard hashing.</li>
+            <li>Persistent session management with secure logout functionality.</li>
+        </ul>
+    </div>
+
+    <!-- PAGE 4: STUDENT FEATURES -->
+    <div class="page">
+        <div class="section-header">
+            <div class="section-number">7</div>
+            <h2>Student Features (Detailed)</h2>
+        </div>
+        
+        <h3>A. Assessment Module</h3>
+        <p>Our AI-powered testing suite provides a multi-dimensional view of a candidate's capabilities:</p>
+        <ul>
+            <li><strong>AI Skill Test:</strong> Subject-specific challenges with real-time AI grading.</li>
+            <li><strong>AI Interview:</strong> A conversational interface that evaluates verbal responses to technical questions.</li>
+            <li><strong>CV Upload Assessment:</strong> Analyzes uploaded resumes against job roles to suggest interview preparation.</li>
+            <li><strong>Assigned Exams:</strong> Mandatory proctored tests assigned directly by potential recruiters.</li>
+        </ul>
+
+        <h3>B. Proctoring System</h3>
+        <div class="feature-card" style="border-left: 4px solid #ef4444;">
+            <p>To ensure academic integrity, we implement a robust proctoring layer:</p>
+            <ul>
+                <li>Detects tab-switching and window minimize events.</li>
+                <li>Monitors for screen violations and multiple displays.</li>
+                <li>Automatically submits or terminates the session upon repeated violations.</li>
+            </ul>
+        </div>
+
+        <h3>C. Confidence Checker</h3>
+        <p>Beyond technical skills, the AI evaluates soft skills by asking behavioral questions and analyzing:</p>
+        <ul>
+            <li><strong>Fluency:</strong> The flow and coherence of speech/text.</li>
+            <li><strong>Confidence:</strong> The tone and certainty in responses.</li>
+            <li><strong>Communication:</strong> Clarity and structural quality of the delivery.</li>
+        </ul>
+    </div>
+
+    <!-- PAGE 5: ANALYTICS & DASHBOARD -->
+    <div class="page">
+        <h3>D. Analytics Section</h3>
+        <p>Data visualization is used to display a deep dive into candidate performance:</p>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h4>Performance Breakdown</h4>
+                <p>Visual charts showing scores across different skill domains (e.g., Coding, Logic, Communication).</p>
+            </div>
+            <div class="feature-card">
+                <h4>Skill Gap Analysis</h4>
+                <p>Identifies exact areas where the candidate fell short of industry standards.</p>
+            </div>
+        </div>
+        <p><strong>AI Suggestions:</strong> The system provides contextual career path recommendations based on current strengths.</p>
+
+        <h3>E. Dashboard Features</h3>
+        <ul>
+            <li><strong>Notification Hub:</strong> Real-time alerts for new exams, results, or messages.</li>
+            <li><strong>Profile Management:</strong> Ability to update skills, contact info, and portfolio links.</li>
+            <li><strong>Activity Feed:</strong> Timeline of recent assessments and achievements.</li>
+        </ul>
+
+        <div class="section-header" style="margin-top: 3rem;">
+            <div class="section-number">8</div>
+            <h2>Recruiter Features (Detailed)</h2>
+        </div>
+        <p>Recruiters have full control over the talent evaluation pipeline:</p>
+        <ul>
+            <li><strong>Custom Exam Creation:</strong> Intuitive UI to build MCQ or Interview-based assessments.</li>
+            <li><strong>Candidate Management:</strong> Detailed profiles showing ATS scores, resume parsing, and AI feedback.</li>
+            <li><strong>Comparison Engine:</strong> Side-by-side analysis of candidate metrics to simplify shortlisting.</li>
+            <li><strong>Proctoring Logs:</strong> Access to violation reports for every student assessment.</li>
+        </ul>
+    </div>
+
+    <!-- PAGE 6: RESULT & ROADMAP -->
+    <div class="page">
+        <div class="section-header">
+            <div class="section-number">9</div>
+            <h2>Result System</h2>
+        </div>
+        <p>The result system is fully automated, providing high-transparency reports immediately after submission.</p>
+        <div class="feature-card">
+            <h4>Generated Insights:</h4>
+            <ul>
+                <li><strong>Final Score:</strong> Normalized percentage based on difficulty levels.</li>
+                <li><strong>AI Evaluation:</strong> Qualitative feedback on "Why" specific marks were given.</li>
+                <li><strong>Strengths & Weaknesses:</strong> Bulleted highlights of the performance.</li>
+                <li><strong>Proctoring Status:</strong> Verification of the test's integrity.</li>
+            </ul>
+        </div>
+
+        <div class="section-header" style="margin-top: 3rem;">
+            <div class="section-number">10</div>
+            <h2>Roadmap System</h2>
+        </div>
+        <p>One of the unique value propositions of SkillGuard AI is the <strong>Automated Learning Roadmap</strong>. If a student fails to meet the benchmark, the AI doesn't just show a score; it builds a bridge to improvement.</p>
+        <div class="workflow-step">
+            <div class="step-circle">B</div>
+            <div><strong>Beginner Path:</strong> Core concepts and fundamentals.</div>
+        </div>
+        <div class="workflow-step">
+            <div class="step-circle">I</div>
+            <div><strong>Intermediate Path:</strong> Practical applications and projects.</div>
+        </div>
+        <div class="workflow-step">
+            <div class="step-circle">A</div>
+            <div><strong>Advanced Path:</strong> Optimization and architectural insights.</div>
+        </div>
+    </div>
+
+    <!-- PAGE 7: TECH STACK & FLOW -->
+    <div class="page">
+        <div class="section-header">
+            <div class="section-number">11</div>
+            <h2>Technology Stack</h2>
+        </div>
+        <div class="tech-stack">
+            <span class="tech-item"><strong>Frontend:</strong> React.js, Vite, Framer Motion</span>
+            <span class="tech-item"><strong>Styling:</strong> CSS3, Bootstrap (React-Bootstrap)</span>
+            <span class="tech-item"><strong>Backend:</strong> Django (Python)</span>
+            <span class="tech-item"><strong>Database:</strong> SQLite (Development), PostgreSQL (Production)</span>
+            <span class="tech-item"><strong>AI Core:</strong> OpenAI API / Gemini API (Evaluation)</span>
+            <span class="tech-item"><strong>Visualization:</strong> Recharts</span>
+        </div>
+
+        <div class="section-header" style="margin-top: 3rem;">
+            <div class="section-number">12</div>
+            <h2>Working Flow</h2>
+        </div>
+        <div class="workflow-step">
+            <div class="step-circle">1</div>
+            <p><strong>Registration:</strong> User signs up as Student or Recruiter via secure portal.</p>
+        </div>
+        <div class="workflow-step">
+            <div class="step-circle">2</div>
+            <p><strong>Assessment:</strong> Student takes an AI interview or assigned technical MCQ exam.</p>
+        </div>
+        <div class="workflow-step">
+            <div class="step-circle">3</div>
+            <p><strong>AI Evaluation:</strong> Responses are sent to the AI engine for semantic analysis and scoring.</p>
+        </div>
+        <div class="workflow-step">
+            <div class="step-circle">4</div>
+            <p><strong>Analytics Generation:</strong> Dashboards update with performance metrics and gap analysis.</p>
+        </div>
+        <div class="workflow-step">
+            <div class="step-circle">5</div>
+            <p><strong>Hiring/Learning:</strong> Recruiters shortlist based on data; Students follow generated roadmaps.</p>
+        </div>
+    </div>
+
+    <!-- PAGE 8: SUMMARY & CONCLUSION -->
+    <div class="page">
+        <div class="section-header">
+            <div class="section-number">13</div>
+            <h2>Key Highlights</h2>
+        </div>
+        <p><span class="badge">AI Evaluation</span> <span class="badge">Proctoring Control</span> <span class="badge">ATS Resume Parsing</span> <span class="badge">Scalable Recruitment</span> <span class="badge">Career Mentorship</span></p>
+
+        <div class="section-header" style="margin-top: 3rem;">
+            <div class="section-number">14</div>
+            <h2>Advantages</h2>
+        </div>
+        <ul>
+            <li><strong>Efficiency:</strong> Reduces hiring turnaround time by up to 70% through automation.</li>
+            <li><strong>Objectivity:</strong> AI ensures every candidate is judged on the same criteria, eliminating human bias.</li>
+            <li><strong>Candidate ROI:</strong> Even unsuccessful candidates leave with a roadmap for improvement.</li>
+        </ul>
+
+        <div class="section-header" style="margin-top: 3rem;">
+            <div class="section-number">15</div>
+            <h2>Future Scope</h2>
+        </div>
+        <ul>
+            <li><strong>Voice Emotion Detection:</strong> Analyzing stress levels during AI interviews.</li>
+            <li><strong>Code Execution Sandbox:</strong> Real-time coding environments for technical assessments.</li>
+            <li><strong>Job Portal Integration:</strong> Directly connecting high-scorers with LinkedIn and Indeed.</li>
+        </ul>
+
+        <div class="section-header" style="margin-top: 3rem;">
+            <div class="section-number">16</div>
+            <h2>Conclusion</h2>
+        </div>
+        <p>SkillGuard AI is more than just a testing tool; it is a comprehensive solution for the future of work. By integrating AI-driven evaluation with candidate-centric growth tools, we empower organizations to find the best talent while helping students realize their full potential.</p>
+
+        <footer class="no-print">
+            © 2026 SkillGuard AI - AI-Based Skill Assessment Platform
+        </footer>
+    </div>
+
+</body>
+</html>

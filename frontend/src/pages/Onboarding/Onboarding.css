@@ -1,0 +1,241 @@
+.onboarding-layout {
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--bg-main);
+  display: flex;
+  justify-content: center;
+  padding: 3rem 1.5rem;
+}
+
+.onboarding-container {
+  width: 100%;
+  max-width: 700px;
+}
+
+.onboarding-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.brand-logo.sm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.brand-name.sm {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: -0.025em;
+}
+
+.onboarding-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
+}
+
+.onboarding-header p {
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+.onboarding-content-card {
+  background-color: var(--surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.step-content {
+  min-height: 350px; /* Prevent jumping between steps */
+  margin-bottom: 2rem;
+}
+
+.form-step h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text-main);
+}
+
+.step-description {
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+  margin-bottom: 2rem;
+}
+
+/* Slide in animation for steps */
+.slide-in {
+  animation: slideInRight 0.3s ease-out forwards;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Step 1 Styles */
+.avatar-upload-section {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background-color: var(--bg-main);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+}
+
+.avatar-help-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.avatar-help-text strong {
+  font-size: 0.9375rem;
+  color: var(--text-main);
+}
+
+.avatar-help-text span {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.textarea-field {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 0.9375rem;
+  font-family: inherit;
+  color: var(--text-main);
+  background-color: var(--surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  resize: vertical;
+  min-height: 100px;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.textarea-field:focus {
+  outline: none;
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+.textarea-field::placeholder {
+  color: var(--text-light);
+}
+
+/* Step 2 + Step 3 Styles */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 600px) {
+  .form-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.suggested-tags {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.suggested-label {
+  font-size: 0.8125rem;
+  color: var(--text-light);
+}
+
+.suggested-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.suggested-chip {
+  background-color: var(--surface);
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 500;
+  transition: all var(--transition-fast);
+}
+
+.suggested-chip:hover:not(.selected) {
+  background-color: var(--bg-main);
+  border-color: var(--primary-light);
+  color: var(--primary);
+}
+
+.suggested-chip.selected {
+  background-color: var(--primary-light);
+  border-color: var(--primary);
+  color: var(--primary-hover);
+  opacity: 0.5;
+  cursor: default;
+}
+
+/* Step 4 Styles */
+.resume-upload-section {
+  margin-bottom: 1.5rem;
+}
+
+.skip-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem;
+  background-color: var(--bg-main);
+  border-radius: var(--radius-md);
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.skip-note svg {
+  color: var(--primary);
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+}
+
+/* Footer Actions */
+.onboarding-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.back-btn {
+  min-width: 100px;
+}
+
+.next-btn {
+  min-width: 140px;
+}
