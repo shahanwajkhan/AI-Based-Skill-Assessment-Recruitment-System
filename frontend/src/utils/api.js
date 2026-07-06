@@ -1,4 +1,9 @@
 const getBaseURL = () => {
+  // If an API URL is specified in environment variables (like on Vercel), use it
+  if (import.meta.env.VITE_API_URL) {
+    return import.meta.env.VITE_API_URL.replace(/\/api\/?$/, '');
+  }
+  
   // If we're running on the Django port (8000), use relative URLs
   if (window.location.port === '8000') {
     return '';
